@@ -53,3 +53,21 @@ Cons of NSOperationQueue:
 * Additional complexity for managing dependencies and synchronization.
 * Lack of fine-grained control compared to lower-level APIs.
 * Objective-C legacy API, not fully embracing modern Swift concurrency features.
+
+
+
+GCD:
+Use GCD when you need a lightweight solution for simple asynchronous tasks, especially when performance is a critical factor, and you don’t require complex task management.
+Limited Control: While you can manage concurrent tasks using global queues, GCD provides less control over task dependencies and execution order.
+No Built-in Cancellation: GCD does not support cancellation of tasks directly once they are dispatched.
+Lightweight: Ideal for simple tasks or when performance is critical, as it has lower overhead compared to NSOperationQueue.
+Global Queues: Offers built-in global queues with various Quality of Service (QoS) levels for task prioritization.
+
+NSOperationQueue:
+Use NSOperationQueue when your tasks have dependencies, require cancellation support, or when you want more control over the execution order and management of operations.
+Dependency Management: You can easily set dependencies between operations, allowing you to control the order of execution.
+Cancellation: NSOperationQueue allows you to cancel operations, providing more control over ongoing tasks.
+Customizability: You can subclass NSOperation to create custom operations with specific behaviors, enhancing flexibility.
+Task Management: Supports managing multiple operations, monitoring their states, and querying the queue for status.
+Completion Blocks: You can specify completion blocks for operations, allowing for straightforward handling of post-execution logic.
+Max Concurrent Operations: You can set limits on the number of concurrent operations, allowing better resource management
